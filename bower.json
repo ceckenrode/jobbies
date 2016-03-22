@@ -2,7 +2,9 @@
   "name": "jobbies",
   "homepage": "https://github.com/ceckenrode/jobbies.git",
   "authors": [
-    "Christian Eckenrode, James Mona, Christopher Donofrio"
+    "Christian Eckenrode",
+    "James Mona",
+    "Christopher Donofrio"
   ],
   "description": "A Job Board for Little Jobs",
   "main": "server.js",
@@ -13,12 +15,14 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "/public/libs/bower_components"
   ],
   "dependencies": {
     "Materialize": "materialize#^0.97.5",
     "angular": "^1.5.2",
     "material-design-icons-iconfont": "^2.0.4",
     "angular-route": "^1.5.2"
-  }
+  },
+  "private": true
 }
