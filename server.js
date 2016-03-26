@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 // configuration ====================================================================
 // var db = require('./config/db');
+//models ============================================================================
+var User = require("./app/models/userModel.js");
 // set up our port ==================================================================
 
 var PORT = process.env.PORT || 3000;
