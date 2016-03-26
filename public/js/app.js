@@ -1,1 +1,1 @@
-angular.module("jobbiesApp", []);
+angular.module("jobbiesApp", ['ui.router']);
