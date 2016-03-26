@@ -22,8 +22,8 @@
     "Materialize": "materialize#^0.97.5",
     "angular": "^1.5.2",
     "material-design-icons-iconfont": "^2.0.4",
-    "angular-route": "^1.5.2",
-    "webui-popover": "^1.2.5"
+    "webui-popover": "^1.2.5",
+    "angular-ui-router": "^0.2.18"
   },
   "private": true
 }

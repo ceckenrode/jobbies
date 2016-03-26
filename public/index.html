@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="jobbiesApp">
 <head>
   <title>Jobbies - A Job Board For Little Jobs</title>
   <link rel="stylesheet" type="text/css" href="/libs/bower_components/Materialize/dist/css/materialize.min.css">
   <script type="text/javascript" src="/libs/bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/libs/bower_components/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="/libs/bower_components/angular-ui-router/release/angular-ui-router.min.js"/></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+  
+  <script type="text/javascript" src="/js/appRoutes.js"></script>
 </head>
 <body>
+<base href="/">
 <h1>Welcome</h1>
+<div ui-view></div>
 
+
+<script type="text/javascript" src="js/controllers/feedController.js"></script>
+<script type="text/javascript" src="js/controllers/registerController.js"></script>
 <script type="text/javascript" src="/libs/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/libs/bower_components/Materialize/dist/js/materialize.min.js"></script>
 </body>
