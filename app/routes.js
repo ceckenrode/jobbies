@@ -1,3 +1,5 @@
+var User = require('./models/userModel');
+
 module.exports = function(app) {
 
   app.get('*', function(req, res) {

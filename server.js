@@ -1,4 +1,5 @@
 // modules ==========================================================================
+var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -6,7 +7,8 @@ var logger = require('morgan');
 
 //configuration ====================================================================
 var db = require('./config/db');
-//set up our port ==================================================================
+mongoose.connect(db.url);
+// set up our port ==================================================================
 
 var PORT = process.env.PORT || 3000;
 // middleware =======================================================================
