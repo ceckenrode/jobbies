@@ -1,43 +1,39 @@
-var mongoose = require('mongoose');
-var User = require('./models/userModel');
-
-var db = require("../config/db.js");
-mongoose.connect(db.url, function(err) {
-  if (err) throw err;
-  console.log('Successfully connected to MongoDB');
-});
-
-// create a user a new user
-var testUser = new User({
-  username: 'jmar777',
-  password: 'Password123'
-});
-
-// save user to database
-testUser.save(function(err) {
-  if (err) throw err;
-
-  // fetch user and test password verification
-  User.findOne({ username: 'jmar777' }, function(err, user) {
-    if (err) throw err;
-
-    // test a matching password
-    user.comparePassword('Password123', function(err, isMatch) {
-      if (err) throw err;
-      console.log('Password123:', isMatch); // -&gt; Password123: true
-    });
-
-    // test a failing password
-    user.comparePassword('123Password', function(err, isMatch) {
-      if (err) throw err;
-      console.log('123Password:', isMatch); // -&gt; 123Password: false
-    });
+module.exports = function(app, passport) {
+  //test route, logs the request body in the console to see what is being sent
+  app.post('/test', function(req, res) {
+    console.log(req.body);
   });
-});
 
-module.exports = function(app) {
+  //register and login routes====================================================================
+  //register===================================================
+  app.post('/register', passport.authenticate('local-signup'),
+    function(req, res) {
+      // If this function gets called, authentication was successful.
+      // `req.user` contains the authenticated user.
+      res.json({ status: 'success' });
+    }
+  );
+
+  //login======================================================
+  app.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/profile', // redirect to the secure profile section
+    failureRedirect: '/login', // redirect back to the signup page if there is an error
+    failureFlash: true // allow flash messages
+  }));
+  //===============================================================================================
 
   app.get('*', function(req, res) {
     res.sendFile(process.cwd() + '/public/index.html');
   });
 };
+
+// route middleware to make sure user is logged in
+function isLoggedIn(req, res, next) {
+
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated())
+    return next();
+
+  // if they aren't redirect them to the home page
+  res.redirect('/');
+}
