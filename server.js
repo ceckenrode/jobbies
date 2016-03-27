@@ -3,11 +3,14 @@ var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var passportLocal = require('passport-local');
+var bcrypt = require('bcryptjs');
 var logger = require('morgan');
 
 //configuration ====================================================================
 var db = require('./config/db');
-mongoose.connect(db.url);
+
 // set up our port ==================================================================
 
 var PORT = process.env.PORT || 3000;
