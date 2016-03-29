@@ -1,3 +1,3 @@
 angular.module("jobbiesApp").controller('FeedController', ['$scope', function($scope){
-  
+  $scope.jobbies = [{title:"Mow my lawn", pay: 75, category: "Yardwork", city: "New Brunswick", "desc": "Need someone to mow my lawn, property is medium size, shouldn't take more than hour.  Bring your own mower."}, {title:"Clean up my place", pay: 50, category: "Housework", city: "New Brunswick", "desc": "Had a huge party last night and now I'm hungover and my place is a mess, I just need soemone to come over and tidy up a bit. Thnaks!"}, {title:"Cook Me Dinner", pay: 30, category: "Housework", city: "New Brunswick", "desc": "Too busy and worn out from work to cook for myself, come over and make me dinner."}]
 }]);
