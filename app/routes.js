@@ -11,7 +11,9 @@ module.exports = function(app, passport) {
       // If this function gets called, authentication was successful.
       // `req.user` contains the authenticated user.
       console.log(req.user);
-      res.json({ username: req.user });
+      res.json({
+        username: req.user
+      });
 
     }
   );
@@ -21,7 +23,9 @@ module.exports = function(app, passport) {
     function(req, res) {
       // If this function gets called, authentication was successful.
       // `req.user` contains the authenticated user.
-      res.json({ username: req.user.email });
+      res.json({
+        username: req.user.email
+      });
     }
   );
   //===============================================================================================

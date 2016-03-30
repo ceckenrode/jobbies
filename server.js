@@ -24,10 +24,14 @@ var PORT = process.env.PORT || 3000;
 app.use(logger('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static(__dirname + "/public"));
 // required for passport
-app.use(session({ secret: 'Jobbies1026' })); // session secret
+app.use(session({
+  secret: 'Jobbies1026'
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
