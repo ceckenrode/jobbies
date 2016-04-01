@@ -1,15 +1,47 @@
-module.exports = function(app) {
+module.exports = function(app, passport) {
+  //test route, logs the request body in the console to see what is being sent
+  app.post('/test', function(req, res) {
+    console.log(req.body);
+  });
 
-  app.post('/post', function(req,res){
-    var sale = Sale(req.body);
-    sale.save(function(err, doc){
-      if (err) throw err;
-      console.log("Sale Saved!");
-      res.json(doc);
-    })
-  })
+  //register and login routes====================================================================
+  //register===================================================
+  app.post('/register', passport.authenticate('local-signup'),
+    function(req, res) {
+      // If this function gets called, authentication was successful.
+      // `req.user` contains the authenticated user.
+      console.log(req.user);
+      res.json({
+        username: req.user
+      });
+
+    }
+  );
+
+  //login======================================================
+  app.post('/login', passport.authenticate('local-login'),
+    function(req, res) {
+      // If this function gets called, authentication was successful.
+      // `req.user` contains the authenticated user.
+      res.json({
+        username: req.user.email
+      });
+    }
+  );
+  //===============================================================================================
+
   app.get('*', function(req, res) {
     res.sendFile(process.cwd() + '/public/index.html');
   });
+};
 
+// route middleware to make sure user is logged in
+function isLoggedIn(req, res, next) {
+
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated())
+    return next();
+
+  // if they aren't redirect them to the home page
+  res.redirect('/');
 }

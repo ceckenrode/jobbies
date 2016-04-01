@@ -23,7 +23,7 @@ angular.module("jobbiesApp").config(function($stateProvider, $urlRouterProvider,
       url: '/post',
       templateUrl: 'views/post/post.html',
       controller: 'PostController'
-    })
+    });
 
   $locationProvider.html5Mode(true);
 });
