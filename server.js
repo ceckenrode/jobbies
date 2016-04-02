@@ -10,6 +10,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var logger = require('morgan');
 var db = require('./config/db');
+require('dotenv').config();
 
 //configuration ====================================================================
 mongoose.connect(db.url); // connect to our database
