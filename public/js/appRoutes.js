@@ -19,6 +19,11 @@ angular.module("jobbiesApp").config(function($stateProvider, $urlRouterProvider,
       templateUrl: 'views/register/register.html',
       controller: 'RegisterController'
     })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'views/dashboard/dashboard.html',
+      controller: 'DashboardController'
+    })
     .state('post', {
       url: '/post',
       templateUrl: 'views/post/post.html',
