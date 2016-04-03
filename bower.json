@@ -24,7 +24,8 @@
     "material-design-icons-iconfont": "^2.0.4",
     "webui-popover": "^1.2.5",
     "angular-ui-router": "^0.2.18",
-    "angular-materialize": "^0.1.3"
+    "angular-materialize": "^0.1.3",
+    "ngstorage": "^0.3.10"
   },
   "private": true
 }

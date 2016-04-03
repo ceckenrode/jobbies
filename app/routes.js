@@ -28,10 +28,18 @@ module.exports = function(app, passport) {
   );
   //===============================================================================================
 
+  app.get('/logout', function(req, res) {
+    console.log('got here')
+      //logout user and send empty response
+    req.logout();
+    res.send({});
+  });
+
+
   app.get('*', function(req, res) {
     res.sendFile(process.cwd() + '/public/index.html');
   });
-};
+}
 
 // route middleware to make sure user is logged in
 function isLoggedIn(req, res, next) {
