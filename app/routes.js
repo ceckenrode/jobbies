@@ -1,7 +1,7 @@
 module.exports = function(app, passport) {
   //test route, logs the request body in the console to see what is being sent
   app.post('/test', function(req, res) {
-    console.log(req.body);
+    console.log(req.user);
   });
 
   //register and login routes====================================================================

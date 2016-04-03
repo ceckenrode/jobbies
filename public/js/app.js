@@ -1,1 +1,1 @@
-angular.module("jobbiesApp", ['ui.router']);
+angular.module("jobbiesApp", ['ui.router', 'ui.materialize']);
