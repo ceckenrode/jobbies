@@ -8,9 +8,21 @@ var jobbieSchema = new Schema({
   category: String,
   estCompletionTime: String,
   status: String,
-  employer: [{ name: String, Rating: Number, id: Schema.Types.ObjectId }],
-  employee: [{ name: String, Rating: Number, id: Schema.Types.ObjectId }],
-  location: [{ address1: String, address2: String, city: String, state: String, zip: Number }]
+  employer: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
+  employee: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
+  location: [{
+    address1: String,
+    address2: String,
+    city: String,
+    state: String,
+    zip: Number
+  }]
 });
 
 // methods ======================

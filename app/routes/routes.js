@@ -1,7 +1,6 @@
 module.exports = function(app, passport) {
   //test route, logs the request body in the console to see what is being sent
-  app.post('/test', function(req, res) {
-  });
+  app.post('/test', function(req, res) {});
 
   //register and login routes====================================================================
   //register===================================================
@@ -28,7 +27,6 @@ module.exports = function(app, passport) {
   //===============================================================================================
 
   app.get('/logout', function(req, res) {
-    console.log('got here')
       //logout user and send empty response
     req.logout();
     res.send({});
