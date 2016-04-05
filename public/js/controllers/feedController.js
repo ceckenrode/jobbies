@@ -10,13 +10,12 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', function($s
   {title:"Misc Test", pay: 75, category: "Miscellaneous", city: "New Brunswick", "desc": "TESTING"}]
 
   $scope.filter = {};
-  // $scope.filter.byCategory=false;
-  // $scope.filter.Yardwork = false;
-  // $scope.filter.Housework = false;
-  // $scope.filter.Handywork = false;
-  // $scope.filter.Misc = false;
   $scope.price = 0;
+  $scope.priceModel = {};
   $scope.category = {};
+  $scope.priceModel.twenty = false;
+  $scope.priceModel.fifty = false;
+  $scope.priceModel.hundred = false;
   $scope.category.yardwork = true;
   $scope.category.housework = true;
   $scope.category.handywork = true;
@@ -40,52 +39,6 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', function($s
     }
   }
 
-  // $scope.applyFilter = function(){
-  //   $scope.filter.set=true;
-  //   console.log($scope);
-  // }
-
-  // $scope.resetFilter = function(){
-  //   $scope.filter.set=false;
-  //   console.log($scope);
-  // }
-
-
-  $scope.filterPrice = function(num){
-    switch(num) {
-      case 1:
-        $scope.filter.minTwenty = true;
-        $scope.filter.minFifty = false;
-        $scope.filter.minHundred = false;
-        break;
-      case 2:
-        $scope.filter.minTwenty = false;
-        $scope.filter.minFifty = true;
-        $scope.filter.minHundred = false;
-        break;
-      case 3:
-        $scope.filter.minTwenty = false;
-        $scope.filter.minFifty = false;
-        $scope.filter.minHundred = true;
-        break;
-      default:
-        break;
-      }
-    }
-
-    // $scope.categoryToggle = function(category){
-    //   $scope.filter.byCategory = true;
-    //   if (category === 1){
-    //     $scope.filter.Yardwork = !$scope.filter.Yardwork;
-    //   }else if (category === 2){
-    //     $scope.filter.Housework = !$scope.filter.Housework;
-    //   }else if (category === 3){
-    //     $scope.filter.Handywork = !$scope.filter.Handywork;
-    //   }else{
-    //     $scope.filter.Miscellaneous = !$scope.filter.Miscellaneous;
-    //   }
-    // }
-
   $scope.minPay = function(pay){
     // console.log(pay);
     if ($scope.filter.minTwenty && pay < 20){
@@ -99,25 +52,17 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', function($s
     }
   }
 
-  // $scope.category = function(category){
-  //    console.log(category === "Yardwork");
-  //   // console.log($scope.filter.Yardwork);
-  //   // console.log($scope.filter.Housework);
-  //   if($scope.filter.byCategory === true){
-  //     if (category === "Yardwork" && $scope.filter.Yardwork){
-  //       return false;
-  //     }else if (category === "Housework" && $scope.filter.Housework){
-  //       return false;
-  //     }else if (category === "Handywork" && $scope.filter.Handywork){
-  //       return false;
-  //     }else if (category === "Miscellaneous" && $scope.filter.Miscellaneous){
-  //       return false;
-  //     }else{
-  //       return true;
-  //     }
-  //   }else{
-  //     return false;
-  //   }
-  // }
+  $scope.resetFilter= function(){
+    $scope.filter = {};
+    $scope.price = 0;
+    $scope.category = {};
+    $scope.priceModel.twenty = false;
+    $scope.priceModel.fifty = false;
+    $scope.priceModel.hundred = false;
+    $scope.category.yardwork = true;
+    $scope.category.housework = true;
+    $scope.category.handywork = true;
+    $scope.category.misc = true;
+  }
 
 }]);

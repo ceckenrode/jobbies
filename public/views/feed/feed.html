@@ -13,15 +13,15 @@
         </span>
           <p>Minimum Pay:</p>
           <p>
-            <input ng-click="togglePrice(20)" class="with-gap" name="group1" type="radio" id="price1" />
+            <input ng-click="togglePrice(20)" class="with-gap" name="group1" type="radio" id="price1" ng-model="priceModel.twenty" />
             <label class="filterLabel" for="price1">20 dollars</label>
           </p>
           <p>
-            <input ng-click="togglePrice(50)" class="with-gap" name="group1" type="radio" id="price2" />
+            <input ng-click="togglePrice(50)" class="with-gap" name="group1" type="radio" id="price2" ng-model="priceModel.fifty" />
             <label class="filterLabel" for="price2">50 dollars</label>
           </p>
           <p>
-            <input ng-click="togglePrice(100)" class="with-gap" name="group1" type="radio" id="price3" />
+            <input ng-click="togglePrice(100)" class="with-gap" name="group1" type="radio" id="price3" ng-model="priceModel.hundred" />
             <label class="filterLabel" for="price3">100 dollars</label>
           </p>
           <p>Category:</p>
