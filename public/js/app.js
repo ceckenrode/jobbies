@@ -1,1 +1,0 @@
-angular.module("jobbiesApp", ['ui.router']);
