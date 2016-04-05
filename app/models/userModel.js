@@ -1,17 +1,22 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
+var bcrypt = require('bcryptjs');
+var SALT_WORK_FACTOR = 10;
 
 var userSchema = new Schema({
-  fname: String,
-  lname: String,
-  email: String,
+  fName: String,
+  lName: String,
+  email: {
+    type: String,
+    unique: true
+  },
   phone: Number,
   addressLineOne: String,
   addressLineTwo: String,
   city: String,
   state: String,
   zip: String,
-  username: { type: String, unique: true },
+  username: String,
   password: String,
   ratings: [{
     type: Schema.Types.ObjectId,
@@ -27,4 +32,15 @@ var userSchema = new Schema({
   }]
 });
 
-module.exports = mongoose.model("User", userSchema);
+// methods ======================
+// generating a hash
+userSchema.methods.generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// checking if password is valid
+userSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
+
+module.exports = mongoose.model('User', userSchema);

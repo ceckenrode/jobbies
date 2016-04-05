@@ -7,23 +7,33 @@ angular.module("jobbiesApp").config(function($stateProvider, $urlRouterProvider,
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'views/home/home.html'
+      templateUrl: 'views/home/home.html',
+      authenticate: false
     })
     .state('feed', {
       url: '/feed',
       templateUrl: 'views/feed/feed.html',
-      controller: 'FeedController'
+      controller: 'FeedController',
+      authenticate: false
     })
     .state('register', {
       url: '/register',
       templateUrl: 'views/register/register.html',
-      controller: 'RegisterController'
+      controller: 'RegisterController',
+      authenticate: false
+    })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'views/dashboard/dashboard.html',
+      controller: 'DashboardController',
+      authenticate: true
     })
     .state('post', {
       url: '/post',
       templateUrl: 'views/post/post.html',
-      controller: 'PostController'
-    })
+      controller: 'PostController',
+      authenticate: true
+    });
 
   $locationProvider.html5Mode(true);
 });
