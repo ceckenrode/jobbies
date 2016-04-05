@@ -5,56 +5,62 @@
     </div>
   </div>
   <div class="row">
-    <div class="col m3 l3">
+    <div class="col s12 m12 l3">
       <div class="card-panel teal">
         <div class="card-content white-text">
         <span class="card-title">
           Filter your feed results.
         </span>
-          <p>Pay:</p>
+          <p>Minimum Pay:</p>
           <p>
-            <input type="checkbox" id="price1" />
-            <label class="filterLabel" for="price1">1-20 dollars</label>
+            <input ng-click="togglePrice(20)" class="with-gap" name="group1" type="radio" id="price1" />
+            <label class="filterLabel" for="price1">20 dollars</label>
           </p>
           <p>
-            <input type="checkbox" id="price2" />
-            <label class="filterLabel" for="price2">20-50 dollars</label>
+            <input ng-click="togglePrice(50)" class="with-gap" name="group1" type="radio" id="price2" />
+            <label class="filterLabel" for="price2">50 dollars</label>
           </p>
           <p>
-            <input type="checkbox" id="price3" />
-            <label class="filterLabel" for="price3">50-100 dollars</label>
-          </p>
-          <p>
-            <input type="checkbox" id="price4" />
-            <label class="filterLabel" for="price4">100+ dollars</label>
+            <input ng-click="togglePrice(100)" class="with-gap" name="group1" type="radio" id="price3" />
+            <label class="filterLabel" for="price3">100 dollars</label>
           </p>
           <p>Category:</p>
           <p>
-            <input type="checkbox" id="price1" />
-            <label class="filterLabel" for="price1">Yardwork</label>
+            <input type="checkbox" id="category1" />
+            <label class="filterLabel" for="category1" ng-model="category.yardwork">Yardwork</label>
           </p>
           <p>
-            <input type="checkbox" id="price2" />
-            <label class="filterLabel" for="price2">Housework</label>
+            <input type="checkbox" id="category2" />
+            <label class="filterLabel" for="category2" ng-model="category.housework">Housework</label>
           </p>
           <p>
-            <input type="checkbox" id="price2" />
-            <label class="filterLabel" for="price2">Miscellaneous</label>
+            <input type="checkbox" id="category3" />
+            <label class="filterLabel" for="category3" ng-model="category.handywork">Handywork</label>
           </p>
+          <p>
+            <input type="checkbox" id="category4" />
+            <label class="filterLabel" for="category4" ng-model="category.miscellaneous">Miscellaneous</label>
+          </p>
+          <a class="waves-effect waves-light btn" ng-click="resetFilter()">Reset</a>
         </div>   
       </div>
     </div>
     <div>
-      <div class="col m9 l9">
-      <h5>Find Your Next Jobbie!</h5>
-        <div class="jobbie" ng-repeat="jobbie in jobbies">
-          <div class="jobbieText">
-            {{jobbie.title}} | {{jobbie.pay | currency}}
-            <span class="category"> Category: {{jobbie.category}}</span>
-            <span class="desc"> City: {{jobbie.city}}</span><br>
-            {{jobbie.desc}}
-        </div>
+      <div class="col s12 m12 l9">
+        <h5>Find Your Next Jobbie!</h5>
+        <div class="" ng-repeat="jobbie in jobbies">
+        <div class="jobbie" ng-if="jobbie.pay > price && categorySelected(jobbie.category)">
+         <!--  <div class="jobbie" ng-hide="minPay(jobbie.pay) || category(jobbie.category)"> -->
+            <div class="jobbieText">
+              {{jobbie.title}} | {{jobbie.pay | currency}}
+              <span class="category"> Category: {{jobbie.category}}</span>
+              <span class="desc"> City: {{jobbie.city}}</span><br>
+              {{jobbie.desc}}<br>
+              <a>Apply for this jobbie</a>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
