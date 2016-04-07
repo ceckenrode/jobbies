@@ -49,8 +49,8 @@
       <div class="col s12 m12 l9">
         <h5>Find Your Next Jobbie!</h5>
         <div class="" ng-repeat="jobbie in jobbies">
-        <div class="jobbie" ng-if="jobbie.compensation > price && categorySelected(jobbie.category)">
-         <!--  <div class="jobbie" ng-hide="minPay(jobbie.pay) || category(jobbie.category)"> -->
+          <div class="jobbie" ng-if="jobbie.compensation > price && categorySelected(jobbie.category)">
+          <!--  <div class="jobbie" ng-hide="minPay(jobbie.pay) || category(jobbie.category)"> -->
             <div class="jobbieText">
               {{jobbie.title}} | {{jobbie.compensation | currency}}
               <span class="category"> Category: {{jobbie.category}}</span>
