@@ -11,7 +11,6 @@ angular.module("jobbiesApp").controller('LoginController', ['$scope', '$rootScop
         $scope.email = $scope.password = "";
         $("#loginModal").closeModal();
         Materialize.toast("Weclome, " + response.data.fName + "!", 4000, "green-text");
-        console.log(response.data);
         $state.go('dashboard');
       } else {
         $scope.email = $scope.password = "";

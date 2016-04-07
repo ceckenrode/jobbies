@@ -1,3 +1,24 @@
-<div>
-    <h1>Post Content</h1>
+<div class="container">
+  <div class="row">
+    <h1 class="center-align">Post A Jobbie</h1>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input  ng-model="jobbieTitle" id="jobbieTitle" type="text" class="validate">
+            <label for="jobbieTitle">Jobbie Title</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea ng-model="jobbieDescription" id="jobbieDescription" class="materialize-textarea"></textarea>
+            <label for="jobbieDescription">Jobbie Description</label>
+          </div>
+        </div>
+        <div class="row">
+          <a ng-click="submitJobbie()" class="waves-effect waves-light btn">Submit Jobbie</a>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

@@ -15,8 +15,6 @@ angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', f
     },
     logout: function() {
       $http.get('/logout').then(function() {
-      	console.log('got here');
-      	console.log($localStorage.user);
         delete $localStorage.user;
       });
     },
