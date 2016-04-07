@@ -13,10 +13,6 @@ $http.get('/api/jobbies').then(function successCallback(response){
 })
 
 
-
-
-
-
  $scope.postJobbie = function() {
    console.log('hi');
    $http.post("api/postjobbie", $scope.newJobbie)

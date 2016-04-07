@@ -37,6 +37,7 @@ module.exports = function(app, passport) {
 
   app.get('/logout', function(req, res) {
     //logout user and send empty response
+
     req.logout();
     res.send({});
   });

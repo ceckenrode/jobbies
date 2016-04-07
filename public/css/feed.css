@@ -1,0 +1,28 @@
+.jobbie{
+  border:1px;
+  border-style: solid;
+  border-color: lightgrey;
+  border-radius: 25px;
+  box-shadow: 7px 7px 7px #888888;
+  margin-bottom: 20px;
+}
+
+.jobbieText{
+  margin-left: 15px;
+}
+
+.category{
+  margin-left: 20px;
+}
+
+.desc{
+  margin-left: 20px;
+}
+
+.filterLabel{
+  color: white;
+}
+
+.applyBtn{
+  margin-bottom: 20px;
+}

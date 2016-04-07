@@ -36,7 +36,7 @@ app.use(passport.session()); // persistent login sessions
 
 // routes ===========================================================================
 
-require('./app/routes/routes')(app, passport);
+require('./app/routes/routes')(app, passport); //pass our application and passport into our routes
 
 app.listen(PORT, function() {
   console.log("Listening on PORT " + PORT);
