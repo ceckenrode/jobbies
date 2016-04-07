@@ -1,9 +1,9 @@
 angular.module("jobbiesApp").controller('LoginController', ['$scope', '$rootScope', '$state', 'UserService', function($scope, $rootScope, $state, UserService) {
   $scope.email = $scope.password = null;
 
-  if (UserService.isAuthenticated()) {
-    $state.go('dashboard');
-  }
+  // if (UserService.isAuthenticated()) {
+  //   $state.go('dashboard');
+  // }
 
   $scope.login = function() {
     return UserService.login($scope.email, $scope.password).then(function(response) {
