@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Jobbies - DashBoard</title>
-</head>
-
-<body>
-  <h1>Dashboard Page</h1>
-</body>
-
-</html>
+<div class="container">
+  <div class="row">
+    <h1 class="center-align">Welcome,
+      {{user.fName}}</h1>
+  </div>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Your Jobbies</span>
+          <ul>
+            <li ng-repeat="job in jobbies">
+              {{job.title}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

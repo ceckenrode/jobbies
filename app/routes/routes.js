@@ -1,4 +1,5 @@
 module.exports = function(app, passport) {
+  var Jobbie = require('../models/jobbieModel');
   //test route, logs the request body in the console to see what is being sent
   app.post('/test', function(req, res) {});
 
@@ -14,6 +15,14 @@ module.exports = function(app, passport) {
     }
   );
 
+  app.get('/api/jobbies', function(req, res) {
+    Jobbie.find({}).find(function(err, doc) {
+      res.json(doc);
+    })
+  });
+
+
+
   //login======================================================
   app.post('/login', passport.authenticate('local-login'),
     function(req, res) {
@@ -27,7 +36,8 @@ module.exports = function(app, passport) {
   //===============================================================================================
 
   app.get('/logout', function(req, res) {
-      //logout user and send empty response
+    //logout user and send empty response
+
     req.logout();
     res.send({});
   });
@@ -36,15 +46,16 @@ module.exports = function(app, passport) {
   app.get('*', function(req, res) {
     res.sendFile(process.cwd() + '/public/index.html');
   });
-}
 
-// route middleware to make sure user is logged in
-function isLoggedIn(req, res, next) {
 
-  // if user is authenticated in the session, carry on
-  if (req.isAuthenticated())
-    return next();
+  // route middleware to make sure user is logged in
+  function isLoggedIn(req, res, next) {
 
-  // if they aren't redirect them to the home page
-  res.redirect('/');
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+      return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+  }
 }
