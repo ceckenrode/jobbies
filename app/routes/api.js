@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // //Applications APIs will go here
 // var User = require('../models/userModel');
 // var Jobbie = require('../models/jobbieModel');
@@ -18,3 +19,14 @@
 //
 //
 // }
+=======
+//Applications APIs will go here
+var mongoose = require('mongoose');
+mongoose.connect(db.url);
+
+module.exports = function(app, passport) {
+  app.get('/jobbies', function(req, res) {
+    
+  });
+}
+>>>>>>> Stashed changes
