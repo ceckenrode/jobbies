@@ -9,7 +9,6 @@ module.exports = function(app, passport) {
     function(req, res) {
       // If this function gets called, authentication was successful.
       // `req.user` contains the authenticated user.
-      console.log(req.user);
       res.json(req.user);
 
     }
@@ -19,6 +18,19 @@ module.exports = function(app, passport) {
     Jobbie.find({}).find(function(err, doc) {
       res.json(doc);
     })
+  });
+
+  app.post('/api/postjobbie', function(req, res) {
+    console.log(req.body);
+    job = new Jobbie();
+    job.description = req.body.description;
+    job.title = req.body.title;
+    job.save(function(err, doc) {
+      if (err)
+        throw err;
+      return doc;
+    });
+    res.send({});
   });
 
 

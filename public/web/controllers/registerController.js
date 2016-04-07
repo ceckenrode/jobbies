@@ -23,16 +23,14 @@ angular.module("jobbiesApp").controller('RegisterController', ['$scope', '$http'
         password: $scope.password
       })
       .then(function successCallback(response) {
-        console.log("success");
-        console.log(response.data);
         $scope.email = '';
         $scope.password = '';
         $scope.firstName = '';
         $scope.lastName = '';
         $scope.passwordConfirm = '';
-        $state.go('dashboard');
+        // $state.go('dashboard');
+        Materialize.toast("You have successfully registered!, " + response.data.fName + "!", 4000, "green-text");
       }, function errorCallback(response) {
-        console.log('failed');
         $scope.email = '';
         $scope.password = '';
       });
@@ -44,13 +42,10 @@ angular.module("jobbiesApp").controller('RegisterController', ['$scope', '$http'
         password: $scope.password
       })
       .then(function successCallback(response) {
-        console.log("success");
-        console.log(response.data);
         $scope.email = '';
         $scope.password = '';
         $scope.username = response.data.username;
       }, function errorCallback(response) {
-        console.log('failed');
         $scope.email = '';
         $scope.password = '';
       });
