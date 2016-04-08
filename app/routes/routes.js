@@ -25,6 +25,10 @@ module.exports = function(app, passport) {
     job = new Jobbie();
     job.description = req.body.description;
     job.title = req.body.title;
+    job.compensation = req.body.compensation;
+    job.estCompletionTime = req.body.estCompletionTime;
+    job.status = 'notComplete';
+    job.location = req.body.location;
     job.save(function(err, doc) {
       if (err)
         throw err;
