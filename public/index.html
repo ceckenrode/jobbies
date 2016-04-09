@@ -13,23 +13,24 @@
   <script type="text/javascript" src="/libs/bower_components/angular-ui-router/release/angular-ui-router.min.js" /></script>
   <script type="text/javascript" src="/libs/bower_components/ngStorage/ngStorage.min.js"></script>
   <script type="text/javascript" src="/web/app.js"></script>
-  <script type="text/javascript" src="web/services/user.js"></script>
-  <script type="text/javascript" src="web/authenticate.js"></script>
+  <script type="text/javascript" src="/web/services/user.js"></script>
+  <script type="text/javascript" src="/web/authenticate.js"></script>
   <script type="text/javascript" src="/web/appRoutes.js"></script>
+  <base href="/">
 </head>
 
 <body>
-  <base href="/">
+
   <div ng-include="'/components/partials/navbar.html'"></div>
   <div ng-include="'/components/modals/loginModal.html'"></div>
   <div ui-view></div>
 
-  <script type="text/javascript" src="web/controllers/feedController.js"></script>
-  <script type="text/javascript" src="web/controllers/postController.js"></script>
-  <script type="text/javascript" src="web/controllers/registerController.js"></script>
-  <script type="text/javascript" src="web/controllers/dashboardController.js"></script>
-  <script type="text/javascript" src="web/controllers/navbarController.js"></script>
-  <script type="text/javascript" src="web/controllers/loginController.js"></script>
+  <script type="text/javascript" src="/web/controllers/feedController.js"></script>
+  <script type="text/javascript" src="/web/controllers/postController.js"></script>
+  <script type="text/javascript" src="/web/controllers/registerController.js"></script>
+  <script type="text/javascript" src="/web/controllers/dashboardController.js"></script>
+  <script type="text/javascript" src="/web/controllers/navbarController.js"></script>
+  <script type="text/javascript" src="/web/controllers/loginController.js"></script>
 
 </body>
 
