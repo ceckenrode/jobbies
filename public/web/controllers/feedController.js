@@ -1,4 +1,13 @@
 angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http', function($scope, $http){
+  $scope.feedInit = function() {
+    $http({
+      method: "GET",
+      url: "/api/jobbies"
+    }).then(function(response){
+      $scope.jobbies = response.data;
+      console.log($scope.jobbies);
+    });
+  };
   $scope.jobbies = [{title:"Mow my lawn", pay: 75, category: "Yardwork", city: "New Brunswick", "desc": "Need someone to mow my lawn, property is medium size, shouldn't take more than hour.  Bring your own mower."},
 
   {title:"Clean up my place", pay: 50, category: "Housework", city: "New Brunswick", "desc": "Had a huge party last night and now I'm hungover and my place is a mess, I just need soemone to come over and tidy up a bit. Thnaks!"},

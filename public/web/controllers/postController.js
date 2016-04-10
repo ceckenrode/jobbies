@@ -1,5 +1,4 @@
 angular.module("jobbiesApp").controller('PostController', ['$scope', '$http', '$localStorage', 'UserService', function($scope, $http, $localStorage, UserService) {
-  console.log($localStorage.user);
   $scope.postInit = function() {
     $scope.newJobbie = {};
     $scope.newJobbie.location = {};

@@ -15,9 +15,10 @@ module.exports = function(app, passport) {
   );
 
   app.get('/api/jobbies', function(req, res) {
-    Jobbie.find({}).find(function(err, doc) {
-      res.json(doc);
-    });
+    Jobbie.find({}).populate('_employer').exec(function(err, docs) {
+        if (err) throw err;
+        res.json(docs);
+      });
   });
 
   app.post('/api/postjobbie', isAuthenticated, function(req, res) {
@@ -27,7 +28,7 @@ module.exports = function(app, passport) {
     job.save(function(err, doc) {
       if (err)
         throw err;
-        console.log(doc);
+      console.log(doc);
       return doc;
     });
 
@@ -71,6 +72,8 @@ module.exports = function(app, passport) {
       return next();
     }
     // if they aren't alert the client they aren't logged in
-    res.status(401).json({message: "You must log in to use this feature"});
+    res.status(401).json({
+      message: "You must log in to use this feature"
+    });
   }
 };
