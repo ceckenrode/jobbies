@@ -1,4 +1,4 @@
-angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', function($http, $localStorage) {
+angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', '$state', function($http, $localStorage, $state) {
   var UserService = {
     login: function(email, password) {
       return $http.post('/login', {
@@ -27,6 +27,7 @@ angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', f
       }, function errorCallback(response) {
         if ($localStorage.user && response.status !== 200) {
           delete $localStorage.user;
+          $state.go('home');
         }
       });
       return this.isLoggedIn();
