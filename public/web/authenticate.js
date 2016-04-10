@@ -3,7 +3,7 @@ angular.module("jobbiesApp").run(function ($rootScope, $state, UserService) {
     if (toState.authenticate && !UserService.isAuthenticated()){
       // User isn’t authenticated
       $state.transitionTo("home");
-      event.preventDefault(); 
+      event.preventDefault();
     }
   });
 });

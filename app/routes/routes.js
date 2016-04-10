@@ -17,10 +17,10 @@ module.exports = function(app, passport) {
   app.get('/api/jobbies', function(req, res) {
     Jobbie.find({}).find(function(err, doc) {
       res.json(doc);
-    })
+    });
   });
 
-  app.post('/api/postjobbie', function(req, res) {
+  app.post('/api/postjobbie', isAuthenticated, function(req, res) {
     var job = new Jobbie(req.body);
     job.save(function(err, doc) {
       if (err)
@@ -43,6 +43,9 @@ module.exports = function(app, passport) {
     }
   );
   //===============================================================================================
+  app.get('/authenticate', isAuthenticated, function(req, res) {
+    res.status(200).json({});
+  });
 
   app.get('/logout', function(req, res) {
     //logout user and send empty response
@@ -58,13 +61,12 @@ module.exports = function(app, passport) {
 
 
   // route middleware to make sure user is logged in
-  function isLoggedIn(req, res, next) {
-
+  function isAuthenticated(req, res, next) {
     // if user is authenticated in the session, carry on
-    if (req.isAuthenticated())
+    if (req.isAuthenticated()) {
       return next();
-
-    // if they aren't redirect them to the home page
-    res.redirect('/');
+    }
+    // if they aren't alert the client they aren't logged in
+    res.status(401).json({message: "You must log in to use this feature"});
   }
-}
+};

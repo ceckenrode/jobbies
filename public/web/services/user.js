@@ -19,10 +19,24 @@ angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', f
       });
     },
     isAuthenticated: function() {
+      $http.get('/authenticate').then(function successCallback(response) {
+        if (!$localStorage.user && response.status === 200) {
+          $localStorage.user = response.data;
+        }
+
+      }, function errorCallback(response) {
+        if ($localStorage.user && response.status !== 200) {
+          delete $localStorage.user;
+        }
+      });
+      return this.isLoggedIn();
+    },
+    isLoggedIn: function() {
       if ($localStorage.user) {
         return true;
+      } else {
+        return false;
       }
-      return false
     }
   };
   return UserService;

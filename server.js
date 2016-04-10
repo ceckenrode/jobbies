@@ -30,8 +30,11 @@ app.use(session({
   secret: 'Jobbies1026',
   resave: false,
   saveUninitialized: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 14
+  }
 })); // session secret
-app.use(passport.initialize());// required for passport
+app.use(passport.initialize()); // required for passport
 app.use(passport.session()); // persistent login sessions
 
 // routes ===========================================================================
