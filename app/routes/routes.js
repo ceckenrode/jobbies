@@ -21,14 +21,7 @@ module.exports = function(app, passport) {
   });
 
   app.post('/api/postjobbie', function(req, res) {
-    console.log(req.body);
-    job = new Jobbie();
-    job.description = req.body.description;
-    job.title = req.body.title;
-    job.compensation = req.body.compensation;
-    job.estCompletionTime = req.body.estCompletionTime;
-    job.status = 'notComplete';
-    job.location = req.body.location;
+    var job = new Jobbie(req.body);
     job.save(function(err, doc) {
       if (err)
         throw err;

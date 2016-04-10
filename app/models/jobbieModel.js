@@ -7,7 +7,10 @@ var jobbieSchema = new Schema({
   description: String,
   category: String,
   estCompletionTime: String,
-  status: String,
+  status: {
+    type: String,
+    default: "notComplete"
+  },
   employer: [{
     type: Schema.Types.ObjectId,
     ref: "User"
@@ -21,7 +24,7 @@ var jobbieSchema = new Schema({
     address2: String,
     city: String,
     state: String,
-    zip: Number
+    zip: String
   }]
 });
 

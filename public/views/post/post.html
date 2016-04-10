@@ -4,42 +4,52 @@
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <div class="input-field col s12">
-            <input  ng-model="newJobbie.title" id="jobbieTitle" type="text" class="validate">
+          <div class="input-field col s6">
+            <input ng-model="newJobbie.title" id="jobbieTitle" type="text" class="validate">
             <label for="jobbieTitle">Jobbie Title</label>
+          </div>
+          <div class="input-field col s6">
+            <select class="" ng-change="logCat()" ng-model="newJobbie.category" material-select watch>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="yardwork">Yardwork</option>
+              <option value="housework">Housework</option>
+              <option value="handywork">Handywork</option>
+              <option value="miscellaneous">Miscellaneous</option>
+            </select>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input  ng-model="newJobbie.compensation" id="jobbieCompensation" type="text" class="validate">
+            <input ng-model="newJobbie.compensation" id="jobbieCompensation" type="text" class="validate">
             <label for="jobbieCompensation">Compensation</label>
-          </div><div class="input-field col s6">
-            <input  ng-model="newJobbie.estCompletionTime" id="jobbieEstCompletionTime" type="text" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <input ng-model="newJobbie.estCompletionTime" id="jobbieEstCompletionTime" type="text" class="validate">
             <label for="jobbieEstCompletionTime">How Long Should This Jobbie Take?</label>
           </div>
         </div>
         <div class="row">
-        <p>Jobbie Location:</p>
+          <p>Jobbie Location:</p>
           <div class="input-field col s6">
-            <input  ng-model="newJobbie.location[0].address1" id="jobbieAddress1" type="text" class="validate">
+            <input ng-model="newJobbie.location.address1" id="jobbieAddress1" type="text" class="validate">
             <label for="jobbieAddress1">Address Line 1</label>
           </div>
           <div class="input-field col s6">
-            <input  ng-model="newJobbie.location[0].address2" id="jobbieAddress2" type="text" class="validate">
+            <input ng-model="newJobbie.location.address2" id="jobbieAddress2" type="text" class="validate">
             <label for="jobbieAddress2">Address Line 2(Optional)</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input  ng-model="newJobbie.location[0].city" id="jobbieCity" type="text" class="validate">
+            <input ng-model="newJobbie.location.city" id="jobbieCity" type="text" class="validate">
             <label for="jobbieCity">City</label>
           </div>
           <div class="input-field col s3">
-            <input  ng-model="newJobbie.location[0].state" id="jobbieState" type="text" class="validate">
+            <input ng-model="newJobbie.location.state" id="jobbieState" type="text" class="validate">
             <label for="jobbieState">State</label>
           </div>
           <div class="input-field col s3">
-            <input  ng-model="newJobbie.location[0].zip" id="jobbieZip" type="text" class="validate">
+            <input ng-model="newJobbie.location.zip" id="jobbieZip" type="text" class="validate">
             <label for="jobbieZip">Zip</label>
           </div>
         </div>

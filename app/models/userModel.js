@@ -17,7 +17,10 @@ var userSchema = new Schema({
   state: String,
   zip: String,
   username: String,
-  password: String,
+  password: {
+    type: String,
+    required: true,
+  },
   ratings: [{
     type: Schema.Types.ObjectId,
     ref: "Rating"
