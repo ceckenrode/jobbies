@@ -10,11 +10,14 @@ angular.module("jobbiesApp").controller('PostController', ['$scope', '$http', '$
       .then(function successCallback(response) {
         $scope.newJobbie = {};
         $scope.newJobbie.location = {};
+        Materialize.toast("Your Jobbie has been successfully posted!", 4000, "green-text");
       }, function errorCallback(response) {
-        if (response.data.loggedIn === false) {
-          alert("You must log in to post a Jobbie.");
-          return UserService.logout();
+        if (response.status === 401) {
+          Materialize.toast(response.data.message, 4000, "red-text");
+        } else {
+          Materialize.toast("An error has occured", 4000, "red-text");
         }
+
       });
   };
 }]);

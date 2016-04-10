@@ -21,13 +21,17 @@ module.exports = function(app, passport) {
   });
 
   app.post('/api/postjobbie', isAuthenticated, function(req, res) {
+    console.log(req.body);
     var job = new Jobbie(req.body);
+    job._employer = req.user._id;
     job.save(function(err, doc) {
       if (err)
         throw err;
+        console.log(doc);
       return doc;
     });
-    res.send({});
+
+    res.json({});
   });
 
 

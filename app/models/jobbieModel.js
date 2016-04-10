@@ -11,14 +11,14 @@ var jobbieSchema = new Schema({
     type: String,
     default: "notComplete"
   },
-  employer: [{
+  _employer: {
     type: Schema.Types.ObjectId,
     ref: "User"
-  }],
-  employee: [{
+  },
+  _employee: {
     type: Schema.Types.ObjectId,
     ref: "User"
-  }],
+  },
   location: [{
     address1: String,
     address2: String,

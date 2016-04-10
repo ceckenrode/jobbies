@@ -16,10 +16,10 @@ angular.module("jobbiesApp").controller('LoginController', ['$scope', '$rootScop
         $scope.email = $scope.password = "";
         return Materialize.toast("Invalid email and/or password. Please try again.", 4000, "red-text");
       }
-    })
-  }
+    });
+  };
   $scope.closeModal = function() {
     $scope.email = $scope.password = null;
     $("#loginModal").closeModal();
-  }
+  };
 }]);
