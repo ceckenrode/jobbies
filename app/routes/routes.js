@@ -16,9 +16,9 @@ module.exports = function(app, passport) {
 
   app.get('/api/jobbies', function(req, res) {
     Jobbie.find({}).populate('_employer').exec(function(err, docs) {
-        if (err) throw err;
-        res.json(docs);
-      });
+      if (err) throw err;
+      res.json(docs);
+    });
   });
 
   app.post('/api/postjobbie', isAuthenticated, function(req, res) {
