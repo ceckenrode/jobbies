@@ -2,19 +2,23 @@
   <div class="row">
     <div class="col s6 m6 l6">
       <p>Jobbies They Have Done:</p>
-      <div class="jobbie">
-        <ul ng-repeat="jobbieAssigned in jobbiesAssigned">
-          <li>Jobbie: {{jobbieAssigned.title}}</li>
-          <li>Employer: {{jobbieAssigned._employer.fName}}</li>
-        </ul>
+      <div ng-repeat="jobbieAssigned in jobbiesAssigned">
+        <div class="jobbie" ng-if="jobbieAssigned.status === 'complete'">
+          <div class="jobbieText">
+            Jobbie: {{jobbieAssigned.title}}<br>
+            Employer: {{jobbieAssigned._employer.fName}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="col s6 m6 l6">
       <p>Jobbies They Have Offered:</p>
-      <div class="jobbie">
-        <ul ng-repeat="jobbiePosted in jobbiesPosted">
-          <li>Jobbie: {{jobbiePosted.title}}</li>
-        </ul>
+      <div ng-repeat="jobbiePosted in jobbiesPosted">
+        <div class="jobbie">
+          <div class="jobbieText">
+            Jobbie: {{jobbiePosted.title}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
