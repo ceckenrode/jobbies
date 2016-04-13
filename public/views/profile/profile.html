@@ -1,1 +1,6 @@
-  <h1> {{userInfo['0'].fName}}'s Profile</h1>
+  <h4> {{userInfo['0'].fName}}'s Profile</h4>
+  <p>Jobbies They Have Done:</p>
+    <ul ng-repeat="jobbieAssigned in jobbiesAssigned">
+      <li>{{jobbieAssigned.title}}</li>
+      <li>{{jobbieAssigned}}</li>
+    </ul>

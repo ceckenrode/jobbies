@@ -6,7 +6,8 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
   })
   .then(function(response){
     $scope.userInfo = response.data;
-    console.log(response);
+    $scope.jobbiesAssigned = response.data['0'].jobbiesAssigned
+    console.log(response.data);
   });
 
 

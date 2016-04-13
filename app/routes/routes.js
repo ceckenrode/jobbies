@@ -1,6 +1,7 @@
 module.exports = function(app, passport) {
   var Jobbie = require('../models/jobbieModel');
   var User = require('../models/userModel.js')
+
   //test route, logs the request body in the console to see what is being sent
   app.post('/test', function(req, res) {});
 
@@ -25,10 +26,15 @@ module.exports = function(app, passport) {
   app.get('/api/users/:userId', function(req, res) {
    console.log(req.params.userId);
 
-    User.find({_id: req.params.userId}).populate('jobbiesPosted').populate('jobbiesAssigned').exec(function(err, docs) {
-        if (err) throw err;
-        res.json(docs);
-      });
+    User.find({_id: req.params.userId})
+    .populate('jobbiesPosted')
+    .populate('jobbiesAssigned')
+    .deepPopulate('jobbiesAssigned._employer')
+    .exec(function(err, docs) {
+      if (err) throw err;
+      res.json(docs);
+    });
+     
   });
 
   app.post('/api/postjobbie', isAuthenticated, function(req, res) {
