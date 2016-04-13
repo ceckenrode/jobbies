@@ -11,6 +11,10 @@ var jobbieSchema = new Schema({
     type: String,
     default: "notComplete"
   },
+  timePosted: {
+    type: Date,
+    default: Date.now
+  },
   _employer: {
     type: Schema.Types.ObjectId,
     ref: "User"
