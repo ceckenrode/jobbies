@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-init="pullJobbies()">
+<div class="container-fluid" ng-init="feedInit()">
   <div class="row">
     <div class="col s12 m12 l12"></div>
   </div>
@@ -46,24 +46,25 @@
     <div>
       <div class="col s12 m12 l9">
         <h5>Find Your Next Jobbie!</h5>
-        <div class="" ng-repeat="jobbie in jobbies">
-          <div class="jobbie" ng-if="jobbie.compensation > price && categorySelected(jobbie.category)">
-            <!--  <div class="jobbie" ng-hide="minPay(jobbie.pay) || category(jobbie.category)"> -->
-            <div class="jobbieText">
+        <table class="striped highlight bordered" ng-table="jobbiesTable">
+          <tr ng-repeat="jobbie in $data">
+            <td data-title="'Title'" sortable="'title'">
               {{jobbie.title}}
-              |
-              {{jobbie.compensation | currency}}
-              <span class="category">
-                Category:
-                {{jobbie.category}}</span>
-              <span class="desc">
-                City:
-                {{jobbie.location[0].city}}</span><br>
-              {{jobbie.description}}<br>
-              <a>Apply for this jobbie</a>
-            </div>
-          </div>
-        </div>
+            </td>
+            <td data-title="'Description'" sortable="'description'">
+              {{jobbie.description | limitTo:20 }}<span ng-if="jobbie.description.length > 20">...</span>
+            </td>
+            <td data-title="'Date Posted'" sortable="'timePosted'">
+              {{jobbie.timePosted | date }}
+            </td>
+            <td data-title="'Employer'" sortable="'employer'">
+              {{jobbie._employer.fName}} {{jobbie._employer.lName}}
+            </td>
+          </tr>
+          <tr>
+
+          </tr>
+        </table>
       </div>
     </div>
   </div>

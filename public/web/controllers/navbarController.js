@@ -1,5 +1,5 @@
 angular.module("jobbiesApp").controller('NavbarController', ['$scope', 'UserService', function($scope, UserService) {
-  $scope.showLogin = true;
+  $scope.showLogin = false;
   $scope.$watch(function() {
     return UserService.isLoggedIn();
   }, function() {

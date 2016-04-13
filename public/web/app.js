@@ -1,1 +1,1 @@
-angular.module("jobbiesApp", ['ui.router', 'ui.materialize', 'ngStorage']);
+angular.module("jobbiesApp", ['ui.router', 'ui.materialize', 'ngStorage', 'ngTable']);
