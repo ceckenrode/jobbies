@@ -25,7 +25,7 @@ module.exports = function(app, passport) {
   app.get('/api/users/:userId', function(req, res) {
    console.log(req.params.userId);
 
-    User.find({_id: req.params.userId}).populate('jobbiesPosted').exec(function(err, docs) {
+    User.find({_id: req.params.userId}).populate('jobbiesPosted').populate('jobbiesAssigned').exec(function(err, docs) {
         if (err) throw err;
         res.json(docs);
       });
