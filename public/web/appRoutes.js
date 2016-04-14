@@ -39,6 +39,12 @@ angular.module("jobbiesApp").config(function($stateProvider, $urlRouterProvider,
       templateUrl: 'views/profile/profile.html',
       controller: 'ProfileController',
       authenticate: false
+    })
+    .state('jobbie', {
+      url: '/jobbie/:jobbie_id',
+      templateUrl: 'views/jobbie/jobbie.html',
+      controller: 'JobbieController',
+      authenticate: false
     });
 
   $locationProvider.html5Mode(true);

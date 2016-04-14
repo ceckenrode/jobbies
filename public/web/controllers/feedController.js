@@ -1,5 +1,6 @@
-angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http', 'NgTableParams', '$filter',
-  function($scope, $http, NgTableParams, $filter) {
+angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http',
+  'NgTableParams', '$filter','$state', '$stateParams',
+  function($scope, $http, NgTableParams, $filter, $state, $stateParams) {
     $scope.feedInit = function() {
       $scope.jobbiesTable = new NgTableParams({
         sorting: {
@@ -16,5 +17,9 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http', 'N
         }
       });
     };
+    $scope.goToJobbie = function(id){
+      $state.go('jobbie', {jobbie_id: id});
+    };
+
   }
 ]);
