@@ -1,4 +1,5 @@
-angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams) {
+angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http', '$state', '$stateParams', '$localStorage', 'UserService', function($scope, $http, $state, $stateParams, $localStorage, UserService) {
+  //profile info (jobbie's taken & posted)
   $http({ 
     method: 'GET',
     url: '/api/users/' + $stateParams.userId,
@@ -10,4 +11,20 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
   }, function errorCallback(response) {
     $state.go("home");
   });
+  //messaging
+  console.log(UserService);
+  $scope.showMessageLink;
+  $scope.$watch(function() {
+    return UserService.isLoggedIn();
+  }, function() {
+    if (UserService.isLoggedIn()) {
+      $scope.showMessageLink = true;
+    } else {
+      $scope.showMessageLink = false;
+    }
+  });
+  $scope.openMessageModel = function() {
+    $("#messageModal").openModal();
+  };
+  console.log($stateParams);
 }]);

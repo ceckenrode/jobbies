@@ -11,7 +11,7 @@ var userSchema = new Schema({
     type: String,
     unique: true
   },
-  phone: Number,
+  phone: String,
   addressLineOne: String,
   addressLineTwo: String,
   city: String,
@@ -33,6 +33,10 @@ var userSchema = new Schema({
   jobbiesPosted: [{
     type: Schema.Types.ObjectId,
     ref: "Jobbie"
+  }],
+  messages: [{
+    content: String,
+    sender: String
   }]
 });
 
