@@ -12,7 +12,6 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
     $state.go("home");
   });
   //messaging
-  console.log(UserService);
   $scope.showMessageLink;
   $scope.$watch(function() {
     return UserService.isLoggedIn();
@@ -26,5 +25,13 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
   $scope.openMessageModel = function() {
     $("#messageModal").openModal();
   };
+  $scope.sendMessage = function(){
+    $scope.message= {
+      to: $stateParams.userId,
+      content: $scope.content
+    };
+    $http.post('/sendMessage', $scope.message)
+  }
   console.log($stateParams);
+  console.log($localStorage);
 }]);

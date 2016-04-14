@@ -36,7 +36,8 @@ var userSchema = new Schema({
   }],
   messages: [{
     content: String,
-    sender: String
+    sender: String,
+    senderId: String
   }]
 });
 
