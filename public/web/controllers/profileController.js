@@ -31,6 +31,13 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
       content: $scope.content
     };
     $http.post('/sendMessage', $scope.message)
+      .then(function successCallback(){
+        $("#messageModal").closeModal();
+        $scope.content = '';
+        Materialize.toast("Message Sent!", 4000, "green-text");
+      }, function errorCallback(){
+        Materialize.toast("There was an error sending your message, please try again later", 4000, "red-text");
+      })
   }
   console.log($stateParams);
   console.log($localStorage);

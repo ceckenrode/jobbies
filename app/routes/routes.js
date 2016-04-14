@@ -65,9 +65,10 @@ module.exports = function(app, passport) {
     {upsert: true},
     function(err, model){
       if (err){
-        console.log(err);
+        throw err;
       }
     });
+  res.json({});
  });
 
   //login======================================================
