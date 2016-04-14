@@ -33,7 +33,12 @@ module.exports = function(app, passport) {
   // });
 
   app.get('/api/users/:userId', function(req, res) {
-   console.log(req.params.userId);
+   User.findOne({_id: req.params.userId})
+   .exec(function(err, docs){
+    if (err){
+      res.status(404);
+    }
+   });
 
     User.find({_id: req.params.userId})
     .populate('jobbiesPosted')
@@ -47,7 +52,6 @@ module.exports = function(app, passport) {
   });
 
   app.post('/api/postjobbie', isAuthenticated, function(req, res) {
-    console.log(req.body);
     var job = new Jobbie(req.body);
     job._employer = req.user._id;
     job.save(function(err, doc) {
