@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 var SALT_WORK_FACTOR = 10;
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var userSchema = new Schema({
   fName: String,
@@ -34,6 +35,8 @@ var userSchema = new Schema({
     ref: "Jobbie"
   }]
 });
+
+userSchema.plugin(deepPopulate /* more on options below */);
 
 // methods ======================
 // generating a hash
