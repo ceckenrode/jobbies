@@ -23,14 +23,24 @@ module.exports = function(app, passport) {
     });
   });
 
-  // app.get('/api/jobbies/:id', function(req, res) {
-  //   console.log(req.params.id)
-  //   console.log('got here');
-  //   Jobbie.find({_id:req.param.id}).populate('_employer').exec(function(err, docs) {
-  //     if (err) throw err;
-  //     res.json(docs);
-  //   });
-  // });
+  app.get('/api/jobbies/:id', function(req, res) {
+    console.log(req.params.id);
+    console.log('got here');
+    Jobbie.findOne({_id:req.params.id}).populate('_employer').exec(function(err, docs) {
+      if (err) throw err;
+      res.json(docs);
+    });
+  });
+
+  app.get('/api/jobbie/accept/:id', isAuthenticated, function(req, res) {
+    console.log(req.user);
+    Jobbie.update({_id : {$eq: req.params.id}}, {$set: {_employee: req.user._id}}, function(err, result){
+    console.log("Updated successfully");
+    console.log(result);
+  });
+
+    res.status(200).json({message: "You have accepted this Jobbie!"});
+  });
 
   app.get('/api/users/:userId', function(req, res) {
    User.findOne({_id: req.params.userId})

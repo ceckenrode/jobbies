@@ -1,4 +1,46 @@
-<div class="container">
-  got here
+<div class="container" ng-init="jobbieInit()">
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+
+              <h4 class="card-title center-align">{{jobbie.title}}</h4>
+              <div class="row">
+                <div class="col s12">
+                  <p>{{jobbie.description}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <p class="center-align">Compensation:
+                    {{jobbie.compensation}}</p>
+                  <p class="center-align">Estimation Completion Time:
+                    {{jobbie.estCompletionTime}}</p>
+                  <p class="center-align">Location:
+                    {{jobbie.location[0].address1}}
+                    ,
+                    {{jobbie.location[0].city}}
+                    {{jobbie.location[0].state}}
+                    {{jobbie.location[0].zip}}
+                  </p>
+                  <p class="center-align">Posted By:
+                    {{jobbie._employer.fName}}
+                    {{jobbie._employer.lName}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card-action">
+              <a ui-sref="feed">Back To Jobbies</a>
+              <a ng-click="acceptJobbie()">Accept This Jobbie</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </div>
