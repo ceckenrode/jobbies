@@ -15,7 +15,6 @@ module.exports = function(app, passport) {
 
     }
   );
-
   app.get('/api/jobbies', function(req, res) {
     Jobbie.find({_employee: null}).populate('_employer').exec(function(err, docs) {
       if (err) throw err;
