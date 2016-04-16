@@ -12,7 +12,7 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
   }, function errorCallback(response) {
     $state.go("home");
   });
-  //messaging
+  
 
   $scope.isAuthed = UserService.isLoggedIn();
   $scope.openMessageModel = function() {
