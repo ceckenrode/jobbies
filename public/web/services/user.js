@@ -28,7 +28,7 @@ angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', '
         if ($localStorage.user && response.status !== 200) {
           delete $localStorage.user;
           $state.go('home');
-        }
+        } 
       });
       return this.isLoggedIn();
     },
