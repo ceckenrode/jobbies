@@ -1,4 +1,5 @@
-angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams) {
+angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http', '$state', '$stateParams', '$localStorage', 'UserService', function($scope, $http, $state, $stateParams, $localStorage, UserService) {
+  //profile info (jobbie's taken & posted)
   $http({ 
     method: 'GET',
     url: '/api/users/' + $stateParams.userId,
@@ -10,4 +11,34 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
   }, function errorCallback(response) {
     $state.go("home");
   });
+  //messaging
+  $scope.showMessageLink;
+  $scope.$watch(function() {
+    return UserService.isLoggedIn();
+  }, function() {
+    if (UserService.isLoggedIn()) {
+      $scope.showMessageLink = true;
+    } else {
+      $scope.showMessageLink = false;
+    }
+  });
+  $scope.openMessageModel = function() {
+    $("#messageModal").openModal();
+  };
+  $scope.sendMessage = function(){
+    $scope.message= {
+      to: $stateParams.userId,
+      content: $scope.content
+    };
+    $http.post('/sendMessage', $scope.message)
+      .then(function successCallback(){
+        $("#messageModal").closeModal();
+        $scope.content = '';
+        Materialize.toast("Message Sent!", 4000, "green-text");
+      }, function errorCallback(){
+        Materialize.toast("There was an error sending your message, please try again later", 4000, "red-text");
+      })
+  }
+  console.log($stateParams);
+  console.log($localStorage);
 }]);
