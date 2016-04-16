@@ -26,3 +26,12 @@
 .applyBtn{
   margin-bottom: 20px;
 }
+
+tr, a {
+  cursor: pointer;
+}
+
+td {
+  background-color: #00ACC1;
+  color: white;
+}
