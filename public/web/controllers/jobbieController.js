@@ -10,7 +10,6 @@ angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http', 
       }, function errorCallback(response) {
         $state.go('home');
       });
-
     };
 
     $scope.acceptJobbie = function() {
