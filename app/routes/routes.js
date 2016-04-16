@@ -42,6 +42,10 @@ module.exports = function(app, passport) {
     res.status(200).json({message: "You have accepted this Jobbie!"});
   });
 
+  app.get('api/messages', fcuntion(req, res) {
+    console.log(req.user);
+  });
+
   app.get('/api/users/:userId', function(req, res) {
    User.findOne({_id: req.params.userId})
    .exec(function(err, docs){
