@@ -1,6 +1,6 @@
 angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http', '$state', '$stateParams', '$localStorage', 'UserService', function($scope, $http, $state, $stateParams, $localStorage, UserService) {
   //profile info (jobbie's taken & posted)
-  $http({ 
+  $http({
     method: 'GET',
     url: '/api/users/' + $stateParams.userId,
   })
@@ -12,16 +12,8 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
     $state.go("home");
   });
   //messaging
-  $scope.showMessageLink;
-  $scope.$watch(function() {
-    return UserService.isLoggedIn();
-  }, function() {
-    if (UserService.isLoggedIn()) {
-      $scope.showMessageLink = true;
-    } else {
-      $scope.showMessageLink = false;
-    }
-  });
+
+  $scope.isAuthed = UserService.isLoggedIn();
   $scope.openMessageModel = function() {
     $("#messageModal").openModal();
   };
