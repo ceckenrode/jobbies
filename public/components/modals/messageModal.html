@@ -1,0 +1,19 @@
+<div id="messageModal" class="modal" ng-controller="ProfileController">
+  <div class="modal-content">
+    <h4 class="center-align">Login</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+          <textarea ng-model="content" id="content" type="text" class="materialize-textarea"></textarea>
+            <label for="content">Message</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a ng-click="sendMessage()" class="waves-effect waves-green btn-flat">Send</a>
+    <a ng-click="closeModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+  </div>
+</div>

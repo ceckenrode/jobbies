@@ -35,3 +35,7 @@ td {
   background-color: #00ACC1;
   color: white;
 }
+
+#messageModalLink{
+  cursor: pointer;
+}
