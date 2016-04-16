@@ -13,7 +13,6 @@ angular.module('jobbiesApp').controller('ProfileController', ['$scope', '$http',
     $state.go("home");
   });
 
-
   $scope.isAuthed = UserService.isLoggedIn();
   $scope.openMessageModel = function() {
     $("#messageModal").openModal();
