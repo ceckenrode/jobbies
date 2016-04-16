@@ -1,5 +1,4 @@
-angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http',
-  '$filter', '$state', '$stateParams',
+angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http', '$filter', '$state', '$stateParams',
   function($scope, $http, $filter, $state, $stateParams) {
     $scope.jobbieInit = function() {
       $http({
