@@ -10,7 +10,6 @@
 .jobbieText{
   margin-left: 15px;
 }
-
 .category{
   margin-left: 20px;
 }
@@ -28,7 +27,7 @@
 }
 
 td {
-  background-color: #039be5;
+  background-color: #039be5";
   color: white;
   cursor: pointer;
 }
