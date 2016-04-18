@@ -16,7 +16,6 @@ module.exports = function(app, passport) {
 
     }
   );
-
   app.get('/api/jobbies', function(req, res) {
     console.log(req.query);
     Jobbie.find({status: {$eq: "notComplete"}}).populate('_employer').exec(function(err, docs) {
@@ -76,7 +75,21 @@ module.exports = function(app, passport) {
     res.json({});
   });
 
-
+ app.post('/sendMessage', isAuthenticated, function(req, res) {
+  console.log(req.body);
+  console.log(req.user);
+  var message = {content: req.body.content, sender: req.user.fName, senderId: req.user._id};
+  User.findOneAndUpdate(
+    {_id: req.body.to},
+    {$push: {messages : message}},
+    {upsert: true},
+    function(err, model){
+      if (err){
+        throw err;
+      }
+    });
+  res.json({});
+ });
 
   //login======================================================
   app.post('/login', passport.authenticate('local-login'),

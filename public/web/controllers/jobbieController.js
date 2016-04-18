@@ -1,5 +1,4 @@
-angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http',
-  '$filter', '$state', '$stateParams',
+angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http', '$filter', '$state', '$stateParams',
   function($scope, $http, $filter, $state, $stateParams) {
     $scope.jobbieInit = function() {
       $http({
@@ -11,7 +10,6 @@ angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http',
       }, function errorCallback(response) {
         $state.go('home');
       });
-
     };
 
     $scope.acceptJobbie = function() {
