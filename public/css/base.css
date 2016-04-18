@@ -26,3 +26,9 @@
 .applyBtn{
   margin-bottom: 20px;
 }
+
+td {
+  background-color: #039be5;
+  color: white;
+  cursor: pointer;
+}
