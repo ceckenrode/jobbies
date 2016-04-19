@@ -16,7 +16,7 @@ var _ = require('lodash');
 //configuration ====================================================================
 mongoose.connect(process.env.MONGOLAB_URI); // connect to our database
 require('./config/passport')(passport);
-
+return;
 // set up our port ==================================================================
 
 var PORT = process.env.PORT || 3000;
