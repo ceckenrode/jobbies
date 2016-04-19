@@ -12,10 +12,9 @@ var logger = require('morgan');
 var db = require('./config/db');
 var _ = require('lodash');
 
-
+return;
 //configuration ====================================================================
 mongoose.connect(process.env.MONGOLAB_URI); // connect to our database
-return;
 
 require('./config/passport')(passport);
 // set up our port ==================================================================
