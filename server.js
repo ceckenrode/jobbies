@@ -14,7 +14,7 @@ var _ = require('lodash');
 
 
 //configuration ====================================================================
-mongoose.connect(db.url); // connect to our database
+mongoose.connect(process.env.MONGOLAB_URI); // connect to our database
 require('./config/passport')(passport);
 
 // set up our port ==================================================================
