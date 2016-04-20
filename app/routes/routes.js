@@ -90,8 +90,9 @@ module.exports = function(app, passport) {
   res.json({});
  });
 
-
-
+  app.get('/api/messages', function(req, res) {
+    res.json(req.user);
+  });
 
   //login======================================================
   app.post('/login', passport.authenticate('local-login'),

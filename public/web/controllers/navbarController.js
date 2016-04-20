@@ -15,4 +15,7 @@ angular.module("jobbiesApp").controller('NavbarController', ['$scope', 'UserServ
   $scope.logout = function() {
     return UserService.logout();
   };
+  $scope.openInboxModal = function(){
+    $("#inboxModal").openModal();
+  };
 }]);
