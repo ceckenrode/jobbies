@@ -12,7 +12,6 @@ module.exports = function(app, passport) {
     function(req, res) {
       // If this function gets called, authentication was successful.
       // `req.user` contains the authenticated user.'
-      console.log('ll');
       res.json(req.user);
 
     }
@@ -20,6 +19,13 @@ module.exports = function(app, passport) {
   app.get('/api/jobbies', function(req, res) {
     console.log(req.query);
     Jobbie.find({status: {$eq: "notComplete"}}).populate('_employer').exec(function(err, docs) {
+      if (err) throw err;
+      res.json(docs);
+    });
+  });
+
+  app.get('/api/jobbies/category/:category', function(req, res) {
+    Jobbie.find({status: "notComplete", category: req.params.category}).populate('_employer').exec(function(err, docs) {
       if (err) throw err;
       res.json(docs);
     });

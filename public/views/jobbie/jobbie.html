@@ -5,37 +5,39 @@
         <div class="col s12 m12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-
-              <h4 class="card-title center-align">{{jobbie.title}}</h4>
+              <div class="container">
+              <h5>{{jobbie.title}}</h5>
               <div class="row">
                 <div class="col s12">
-                  <p class="center-align">{{jobbie.description}}</p>
+                  <h5>{{jobbie.description}}</h5>
                 </div>
               </div>
               <div class="row">
                 <div class="col s12">
-                  <p class="center-align">Compensation:
-                    {{jobbie.compensation}}</p>
-                  <p class="center-align">Estimation Completion Time:
-                    {{jobbie.estCompletionTime}}</p>
-                  <p class="center-align">Location:
+                  <h5>Compensation:
+                    {{jobbie.compensation}}</h5>
+                  <h5>Estimation Completion Time:
+                    {{jobbie.estCompletionTime}}</h5>
+                  <h5>Location:
                     {{jobbie.location[0].address1}}
                     ,
                     {{jobbie.location[0].city}}
                     {{jobbie.location[0].state}}
                     {{jobbie.location[0].zip}}
-                  </p>
-                  <p class="center-align"><a ui-sref="profile({userId:jobbie._employer._id})">Posted By:
+                  </h5>
+                  <h5><a class="white-text" ui-sref="profile({userId:jobbie._employer._id})">Posted By:
                     {{jobbie._employer.fName}}
                     {{jobbie._employer.lName}}
-                  </a></p>
+                  </a></h5>
+                  <h5><a ng-href="https://www.google.com/maps/dir/{{user.location[0].address1}},{{user.location[0].city}},{{user.location[0].state}},{{user.location[0].zip}} USA/{{jobbie.location[0].address1}},{{jobbie.location[0].city}},{{jobbie.location[0].state}},{{jobbie.location[0].zip}} USA" target="_blank">Directions To This Jobbie</a></h5>
                 </div>
               </div>
             </div>
-            <div class="card-action">
+            <div class="card-action right-align">
               <a ui-sref="feed">Back To Jobbies</a>
               <a ng-click="acceptJobbie()">Accept This Jobbie</a>
             </div>
+          </div>
           </div>
         </div>
       </div>

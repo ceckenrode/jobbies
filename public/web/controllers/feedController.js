@@ -11,7 +11,7 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http',
       }, {
         counts: [],
         getData: function($defer, params) {
-          return $http.get('/api/jobbies/'+$scope.updateQuery()).then(function(response) {
+          return $http.get('/api/jobbies/').then(function(response) {
             $scope.totalJobbies = response.data.length;
             console.log(response.data);
             return $filter('orderBy')(response.data, params.orderBy());

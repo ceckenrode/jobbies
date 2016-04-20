@@ -35,21 +35,6 @@ angular.module("jobbiesApp").controller('RegisterController', ['$scope', '$http'
         $scope.email = '';
         $scope.password = '';
       });
-  }
-
-  $scope.login = function() {
-    $http.post('/login', {
-        email: $scope.email,
-        password: $scope.password
-      })
-      .then(function successCallback(response) {
-        $scope.email = '';
-        $scope.password = '';
-        $scope.username = response.data.username;
-      }, function errorCallback(response) {
-        $scope.email = '';
-        $scope.password = '';
-      });
-  }
+  };
 
 }]);

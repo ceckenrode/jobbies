@@ -1,6 +1,8 @@
-angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http', '$filter', '$state', '$stateParams',
-  function($scope, $http, $filter, $state, $stateParams) {
+angular.module("jobbiesApp").controller('JobbieController', ['$scope', '$http', '$filter', '$state', '$stateParams','UserService',
+  function($scope, $http, $filter, $state, $stateParams, UserService) {
     $scope.jobbieInit = function() {
+      $scope.user = UserService.getUser();
+      console.log($scope.user);
       $http({
         method: 'GET',
         url: '/api/jobbies/' + $stateParams.jobbie_id
