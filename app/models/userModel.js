@@ -33,6 +33,11 @@ var userSchema = new Schema({
   jobbiesPosted: [{
     type: Schema.Types.ObjectId,
     ref: "Jobbie"
+  }],
+  messages: [{
+    content: String,
+    sender: String,
+    senderId: String
   }]
 });
 
