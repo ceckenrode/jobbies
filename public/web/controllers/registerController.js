@@ -16,6 +16,7 @@ angular.module("jobbiesApp").controller('RegisterController', ['$scope', '$http'
     }
   }
   $scope.register = function() {
+    console.log('here');
     $http.post('/register', {
         fName: $scope.firstName,
         lName: $scope.lastName,

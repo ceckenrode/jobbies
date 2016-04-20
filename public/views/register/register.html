@@ -6,34 +6,38 @@
         <div class="input-field col s12">
           <input ng-model="firstName" id="firstName" type="text" class="validate">
           <label for="firstName">First Name</label>
+          {{firstName}}
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input ng-model="lastName" id="lastName" type="text" class="validate">
           <label for="lastName">Last Name</label>
+          {{lastName}}
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input ng-model="email" id="email" type="email" class="validate">
           <label for="email">Email Address</label>
+          {{email}}
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input ng-model="password" id="password" type="password" class="validate">
           <label for="password">Password</label>
+          {{password}}
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input ng-model="passwordConfirm" id="reenterpassword" type="password" class="validate">
           <label for="reenterpassword">Confirm Password</label>
+          {{passwordConfirm}}
         </div>
       </div>
-      <a ng-click="validateRegistration()" class="waves-effect waves-light btn">Register</a>
-      <!-- <a ng-click="login()" class="waves-effect waves-light btn">Login</a> -->
+      <a ng-click="register()" class="waves-effect waves-light btn">Register</a>
     </form>
   </div>
 </div>
