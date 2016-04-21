@@ -10,20 +10,14 @@ angular.module("jobbiesApp").controller('NavbarController', ['$scope', 'UserServ
     }
   });
   $scope.openLoginModal = function() {
-    $("#loginModal").openModal({ dismissible: false });
+    $("#loginModal").openModal({
+      dismissible: false
+    });
   };
   $scope.logout = function() {
     return UserService.logout();
   };
-  $scope.getMailAndOpenInboxModal = function(){
-    $http.get('api/messages')
-    .then(function(response){
-      // console.log(response.data.messages)
-      $scope.messages = response.data.messages;
-      console.log($scope.messages);
-      $("#inboxModal").openModal();
-    });
-    console.log($scope.messages)
+  $scope.getMailAndOpenInboxModal = function() {
+    $("#inboxModal").openModal();
   };
-  console.log($scope.messages)
 }]);

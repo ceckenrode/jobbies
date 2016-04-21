@@ -1,11 +1,18 @@
-<div id="inboxModal" class="modal" ng-controller="NavbarController">
+<div id="inboxModal" ng-init="init()" class="modal" ng-controller="MessageController">
   <div class="modal-content">
     <h4 class="center-align">Inbox</h4>
     <div class="row">
       <div class="col s12">
-      {{$parent.messages}}
         <div ng-repeat="message in messages">
-        <p>{{message.content}}</p>
+          <p>{{message.sender}}
+            -
+            {{message.content}}</p>
+        </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+            </div>
+          </form>
         </div>
       </div>
     </div>

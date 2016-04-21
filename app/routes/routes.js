@@ -91,7 +91,7 @@ module.exports = function(app, passport) {
  });
 
   app.get('/api/messages', function(req, res) {
-    res.json(req.user);
+    res.json(req.user.messages);
   });
 
   //login======================================================
