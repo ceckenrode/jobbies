@@ -1,26 +1,32 @@
-  <h4> {{userInfo['0'].fName}}'s Profile</h4>
-  <div class="row">
-    <div class="col s6 m6 l6">
-      <a ng-show="isAuthed" id="messageModalLink" ng-click="openMessageModel()">Send {{userInfo['0'].fName}} a message</a>
-      <p>Jobbies They Have Done:</p>
-      <div ng-repeat="jobbieAssigned in jobbiesAssigned">
-        <div class="jobbie" ng-if="jobbieAssigned.status === 'complete'">
-          <div class="jobbieText">
-            Jobbie: {{jobbieAssigned.title}}<br>
-            Employer: {{jobbieAssigned._employer.fName}}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m6 l6">
-      <p>Jobbies They Have Offered:</p>
-      <div ng-repeat="jobbiePosted in jobbiesPosted">
-        <div class="jobbie">
-          <div class="jobbieText">
-            Jobbie: {{jobbiePosted.title}}
-          </div>
+<h4>
+  {{userInfo['0'].fName}}'s Profile</h4>
+<div class="row">
+  <div class="col s6 m6 l6">
+    <a ng-show="isAuthed" id="messageModalLink" ng-click="openMessageModel()">Send
+      {{userInfo['0'].fName}}
+      a message</a>
+    <p>Jobbies They Have Done:</p>
+    <div ng-repeat="jobbieAssigned in jobbiesAssigned">
+      <div class="jobbie" ng-if="jobbieAssigned.status === 'complete'">
+        <div class="jobbieText">
+          Jobbie:
+          {{jobbieAssigned.title}}<br>
+          Employer:
+          {{jobbieAssigned._employer.fName}}
         </div>
       </div>
     </div>
   </div>
-  <div ng-include="'/components/modals/messageModal.html'"></div>
+  <div class="col s6 m6 l6">
+    <p>Jobbies They Have Offered:</p>
+    <div ng-repeat="jobbiePosted in jobbiesPosted">
+      <div class="jobbie">
+        <div class="jobbieText">
+          Jobbie:
+          {{jobbiePosted.title}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-include="'/components/modals/messageModal.html'"></div>

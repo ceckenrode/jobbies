@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col s12">
         <div ng-repeat="message in messages">
-          <p>{{message.sender}}
+          <p><a ui-sref="profile({userId:message.senderId})">{{message.sender}}</a>
             -
             {{message.content}}</p>
         </div>

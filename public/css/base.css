@@ -10,7 +10,6 @@
 .jobbieText{
   margin-left: 15px;
 }
-
 .category{
   margin-left: 20px;
 }
@@ -25,4 +24,31 @@
 
 .applyBtn{
   margin-bottom: 20px;
+}
+
+td {
+  background-color: #039be5;
+  color: white;
+  cursor: pointer;
+}
+
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #FFF3E0;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+
+#messageModalLink{
+  cursor: pointer;
+}
+
+.overlay{
+  background: rgba(0, 0, 0, .6);
 }

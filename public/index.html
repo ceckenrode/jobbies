@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" type="text/css" href="/css/profile.css">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/feed.css">
+  <link rel="stylesheet" type="text/css" href="/css/base.css">
   <script type="text/javascript" src="/libs/bower_components/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="/libs/bower_components/Materialize/dist/js/materialize.min.js"></script>
   <script type="text/javascript" src="/libs/bower_components/angular/angular.min.js"></script>
@@ -24,16 +24,19 @@
 </head>
 
 <body>
+  <main>
 
   <div ng-include="'/components/partials/navbar.html'"></div>
 
 
   <div ui-view></div>
+</main>
   <div ng-include="'/components/partials/footer.html'"></div>
   <div ng-include="'/components/modals/loginModal.html'"></div>
   <div ng-include="'/components/modals/inboxModal.html'"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.1/lodash.js"></script>
   <script type="text/javascript" src="/web/controllers/feedController.js"></script>
-  <script type="text/javascript" src="/web/controllers/JobbieController.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/web/controllers/JobbieController.js"></script>
   <script type="text/javascript" src="/web/controllers/postController.js"></script>
   <script type="text/javascript" src="/web/controllers/registerController.js"></script>
   <script type="text/javascript" src="/web/controllers/dashboardController.js"></script>

@@ -11,7 +11,7 @@
           </span>
           <p>Minimum Pay:</p>
           <p>
-            <input ng-click="togglePrice(20)" class="with-gap" name="group1" type="radio" id="price1" ng-model="priceModel.twenty"/>
+            <input ng-click="togglePrice(20)" class="with-gap light-blue darken-4" name="group1" type="radio" id="price1" ng-model="priceModel.twenty"/>
             <label class="filterLabel" for="price1">20 dollars</label>
           </p>
           <p>
@@ -24,19 +24,19 @@
           </p>
           <p>Category:</p>
           <p>
-            <input type="checkbox" id="category1" ng-model="category.yardwork"/>
+            <input ng-change="updateQuery()" type="checkbox" id="category1" ng-model="category.yardwork"/>
             <label class="filterLabel" for="category1">Yardwork</label>
           </p>
           <p>
-            <input type="checkbox" id="category2" ng-model="category.housework"/>
+            <input ng-change="updateQuery()" type="checkbox" id="category2" ng-model="category.housework"/>
             <label class="filterLabel" for="category2">Housework</label>
           </p>
           <p>
-            <input type="checkbox" id="category3" ng-model="category.handywork"/>
+            <input ng-change="updateQuery()" type="checkbox" id="category3" ng-model="category.handywork"/>
             <label class="filterLabel" for="category3">Handywork</label>
           </p>
           <p>
-            <input type="checkbox" id="category4" ng-model="category.misc"/>
+            <input ng-change="updateQuery()" type="checkbox" id="category4" ng-model="category.misc"/>
             <label class="filterLabel" for="category4">Miscellaneous</label>
           </p>
           <a class="waves-effect waves-light btn" ng-click="resetFilter()">Reset</a>
@@ -45,7 +45,7 @@
     </div>
     <div>
       <div class="col s12 m12 l9">
-        <h5>Find Your Next Jobbie!</h5>
+        <h5 class="center-align">Find Your Next Jobbie!</h5>
         <table class="striped highlight bordered" ng-table="jobbiesTable">
           <tr ng-click="goToJobbie(jobbie._id)" ng-repeat="jobbie in $data">
             <td data-title="'Title'" sortable="'title'">

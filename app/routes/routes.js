@@ -1,6 +1,7 @@
 module.exports = function(app, passport) {
   var Jobbie = require('../models/jobbieModel');
   var User = require('../models/userModel.js');
+  var _ = require('lodash');
 
   //test route, logs the request body in the console to see what is being sent
   app.post('/test', function(req, res) {});
@@ -10,14 +11,21 @@ module.exports = function(app, passport) {
   app.post('/register', passport.authenticate('local-signup'),
     function(req, res) {
       // If this function gets called, authentication was successful.
-      // `req.user` contains the authenticated user.
+      // `req.user` contains the authenticated user.'
       res.json(req.user);
 
     }
   );
-
   app.get('/api/jobbies', function(req, res) {
-    Jobbie.find({}).populate('_employer').exec(function(err, docs) {
+    console.log(req.query);
+    Jobbie.find({status: {$eq: "notComplete"}}).populate('_employer').exec(function(err, docs) {
+      if (err) throw err;
+      res.json(docs);
+    });
+  });
+
+  app.get('/api/jobbies/category/:category', function(req, res) {
+    Jobbie.find({status: "notComplete", category: req.params.category}).populate('_employer').exec(function(err, docs) {
       if (err) throw err;
       res.json(docs);
     });
@@ -34,7 +42,7 @@ module.exports = function(app, passport) {
 
   app.get('/api/jobbie/accept/:id', isAuthenticated, function(req, res) {
     console.log(req.user);
-    Jobbie.update({_id : {$eq: req.params.id}}, {$set: {_employee: req.user._id}}, function(err, result){
+    Jobbie.update({_id : {$eq: req.params.id}}, {$set: {_employee: req.user._id, status: "taken"}}, function(err, result){
     console.log("Updated successfully");
     console.log(result);
   });

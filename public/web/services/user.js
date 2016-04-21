@@ -38,6 +38,9 @@ angular.module("jobbiesApp").factory('UserService', ['$http', '$localStorage', '
       } else {
         return false;
       }
+    },
+    getUser: function() {
+      return $localStorage.user;
     }
   };
   return UserService;
