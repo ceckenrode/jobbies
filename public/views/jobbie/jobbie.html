@@ -26,8 +26,8 @@
                     {{jobbie.location[0].zip}}
                   </h5>
                   <h5><a class="white-text" ui-sref="profile({userId:jobbie._employer._id})">Posted By:
-                    {{jobbie._employer.fName}}
-                    {{jobbie._employer.lName}}
+                  <a ui-sref="profile({userId: jobbie._employer._id})">{{jobbie._employer.fName}}
+                    {{jobbie._employer.lName}}</a>
                   </a></h5>
                   <h5><a ng-href="https://www.google.com/maps/dir/{{user.location[0].address1}},{{user.location[0].city}},{{user.location[0].state}},{{user.location[0].zip}} USA/{{jobbie.location[0].address1}},{{jobbie.location[0].city}},{{jobbie.location[0].state}},{{jobbie.location[0].zip}} USA" target="_blank">Directions To This Jobbie</a></h5>
                 </div>
