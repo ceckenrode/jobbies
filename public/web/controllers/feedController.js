@@ -13,7 +13,13 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http',
         getData: function($defer, params) {
           return $http.get('/api/jobbies/').then(function(response) {
             $scope.totalJobbies = response.data.length;
-            console.log(response.data);
+            $scope.jobbies = response.data;
+            _.filter($scope.jobbies, function(jobbie){
+              if ($scope.category[jobbie.category]){
+                console.log($scope.category[jobbie.category]);
+                return true;
+              }
+            });
             return $filter('orderBy')(response.data, params.orderBy());
           });
         }
@@ -21,9 +27,9 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http',
     };
 
     $scope.updateQuery = function(){
+      $scope.categoryArray = [];
       $scope.queryString= "?";
       _.forOwn($scope.category, function(value,key){
-        console.log(value,key);
         if (value === true){
           if($scope.queryString.length!==1){
             $scope.queryString+="&";
@@ -32,6 +38,7 @@ angular.module("jobbiesApp").controller('FeedController', ['$scope', '$http',
         }
       });
       console.log($scope.queryString);
+      $scope.jobbiesTable.reload();
       return $scope.queryString;
     };
     $scope.goToJobbie = function(id){
