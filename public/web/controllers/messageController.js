@@ -5,4 +5,12 @@ angular.module("jobbiesApp").controller('MessageController', ['$scope', 'Message
       $scope.messages = response;
     });
   };
+  $scope.showReplyInput = function(messageId){
+    $("." + messageId).toggleClass("hide");
+  }
+  $scope.sendMessage = function(message, id){
+    console.log(message);
+    console.log(id);
+    MessageService.sendMessage(message, id);
+  }
 }]);
