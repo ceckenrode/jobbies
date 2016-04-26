@@ -52,3 +52,7 @@ td {
 .overlay{
   background: rgba(0, 0, 0, .6);
 }
+
+footer{
+  margin: 0 !important;
+}
