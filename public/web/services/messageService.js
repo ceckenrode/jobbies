@@ -11,7 +11,7 @@ angular.module("jobbiesApp").factory('MessageService', ['$http', '$localStorage'
     },
     getMessages: function() {
       return $http.get('/api/messages').then(function successCallback(response) {
-        console.log("USer service", response.data);
+        // console.log("USer service", response.data);
         return response.data;
       }, function errorCallback() {
         delete $localStorage.user;

@@ -2,7 +2,7 @@
   <div class="modal-content">
     <h4 class="center-align">Inbox</h4>
     <div class="row">
-      <div class="col s12">
+      <div class="col s12">{{message}}
         <div ng-repeat="message in messages">
           <p><a ui-sref="profile({userId:message.senderId})">{{message.sender}}</a>
             -

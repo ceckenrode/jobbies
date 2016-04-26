@@ -1,4 +1,4 @@
-angular.module("jobbiesApp").controller('NavbarController', ['$scope', 'UserService', '$http', function($scope, UserService, $http) {
+angular.module("jobbiesApp").controller('NavbarController', ['$scope', 'UserService', '$http', 'MessageService', '$rootScope', function($scope, UserService, $http, MessageService, $rootScope) {
   $scope.showLogin = false;
   $scope.$watch(function() {
     return UserService.isLoggedIn();
@@ -19,5 +19,11 @@ angular.module("jobbiesApp").controller('NavbarController', ['$scope', 'UserServ
   };
   $scope.getMailAndOpenInboxModal = function() {
     $("#inboxModal").openModal();
+    MessageService.getMessages().then(function(response){
+      $rootScope.$broadcast('messageModal', response);
+    });
+
   };
+
+  $scope.messages = 'testing';
 }]);
