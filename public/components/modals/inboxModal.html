@@ -5,8 +5,19 @@
       <div class="col s12">{{message}}
         <div ng-repeat="message in messages">
           <p><a ui-sref="profile({userId:message.senderId})">{{message.sender}}</a>
-            -
-            {{message.content}}</p>
+          -
+          {{message.content}}</p><a ng-click= "showReplyInput(message._id)" id="replyLink">Reply</a>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea class="{{message._id}} materialize-textarea hide" ng-model="content"></textarea>
+                  <label for="textarea1" class="{{message._id}} hide">Your Reply</label>
+                  <a ng-click="sendMessage(content, message.senderId)" class="{{message._id}} hide waves-effect waves-green btn-flat">Send</a>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
         <div class="row">
           <form class="col s12">
